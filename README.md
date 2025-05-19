@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧱 Grid Layout Components for Tailwind + React
 
-## Getting Started
+This project provides reusable, responsive grid layout components built using **Tailwind CSS** and **React**. 
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📁 File: `components/GridLayouts.jsx`
+
+### 🔧 Available Components
+
+| Component | Columns | Behavior |
+|----------|---------|----------|
+| `OneColumn` | 1 | Mobile-first stacked layout |
+| `TwoColumnResponsive` | 1 → 2 | Responsive: 1 col on mobile, 2 on tablet+ |
+| `ThreeColumnDesktop` | 1 → 3 | 3 columns on desktop, 1 on smaller screens |
+| `NestedTwoInThree` | Nested 2/3 | 2-column inside left side of a 3-column grid |
+| `AutoFitColumns` | 1 → 4 | Auto expands from 1 to 4 columns based on screen width |
+
+---
+
+## 🌐 Internationalization (i18n)
+
+All placeholder content uses the `t('...')` convention for translation.
+
+### Example i18n JSON:
+```json
+{
+  "contentBlocks": "Content Blocks",
+  "subContent": "Sub Content",
+  "sideContent": "Side Content",
+  "autoFitCards": "Auto Fit Cards"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Use with `react-i18next`, `next-i18next`, or your preferred i18n tool.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 How to Use
 
-## Learn More
+### 1. Import a layout
+```tsx
+import { ThreeColumnDesktop } from "@/components/GridLayouts";
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Use it in your page/component
+```tsx
+function Page() {
+  return (
+    <ThreeColumnDesktop />
+  );
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Tech Stack
+- ⚛️ React 18+
+- 🎨 Tailwind CSS 3+
+- 🌍 Internationalization ready
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧩 Customization Tips
+- Change `grid-cols-*` classes to suit your layout
+- Wrap with parent `section` or `article` for semantics
+- Use `gap-*` utilities for spacing control
+- Use `children` if you want dynamic slot injection
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+MIT License — free to use and modify.
+
+---
+
+Happy Building! 🏗️
